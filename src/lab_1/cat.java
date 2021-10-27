@@ -1,5 +1,8 @@
 package lab_1;
 
+//question 5
+
+
 public class cat {
     private static final String DEFAULT_NAME = "No name";
     private static final int DEFAULT_HGT = 6;
