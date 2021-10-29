@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Person {
     private String firstName;
     private String lastName;
+
     private ArrayList<PhoneNumber> phoneNumbers;
     private ArrayList<Email> emails;
     private ArrayList<Address> addresses;
@@ -30,5 +31,8 @@ public class Person {
     }
 
 
+    public String getPersonName(){
+        return this.firstName + " " + this.lastName;
+    }
 
 }

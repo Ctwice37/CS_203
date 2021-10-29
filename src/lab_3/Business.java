@@ -14,6 +14,10 @@ public class Business {
         this.businessName = name;
     }
 
+public String getBusinessName(){
+        return this.businessName;
+}
+
 
 
 }
