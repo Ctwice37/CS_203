@@ -30,7 +30,8 @@ public class question_9 {
     }
 
     public static void main(String[] args) {
-        String DNA = "ACGACGGA";
+        String DNA = "ACGACGGATAAA";
+
         for(String x : triplets(DNA))
             System.out.println(x);
     }
