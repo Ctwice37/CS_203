@@ -2,7 +2,7 @@ package lab_1;
 
 
 import myutil.MealCard;
-import myutil.Person;
+
 
 public class test{
     public static void main(String[] args) {
