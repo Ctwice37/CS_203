@@ -1,0 +1,8 @@
+
+
+
+a) 0
+
+b) null
+
+c) exception --- cannot return string value from null;

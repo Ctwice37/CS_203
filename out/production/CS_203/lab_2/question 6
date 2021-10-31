@@ -1,0 +1,8 @@
+
+You must create a new array object if you wish to change the size; array size is immutable
+
+You are allowed to insert/delete elements after array initialize
+
+
+
+
