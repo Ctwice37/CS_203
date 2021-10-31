@@ -1,14 +1,15 @@
 package lab_3;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBook {
     ArrayList<Person> personContact = new ArrayList<>();
     ArrayList<Business> businessContact = new ArrayList<>();
 
+    public void addPerson(String first, String last){
+        personContact.add(new Person(first, last));
+    }
 
     public void addPerson(){
         Scanner input = new Scanner(System.in);
@@ -19,6 +20,10 @@ public class AddressBook {
 
         personContact.add(new Person(firstName, lastName));
 
+    }
+
+    public void addPerson(String fName, String LastName, String street, String city, String state, int zip){
+        personContact.add(new Person(fName, LastName, street, city, state, zip));
     }
 
     public void addBusiness(){
@@ -46,20 +51,23 @@ public class AddressBook {
         }
     }
 
-    public void listBusinesses(){
-        Arrays.sort(businessContact.toArray());
+//    public void listBusinesses(){
+//        for (Business p : businessContact)
+//
+//       }
 
-       Business[] business = businessContact.toArray(Business[]::new);
 
-       for (Business b : business)
-           System.out.println(b.getBusinessName());
-       }
-
+    public ArrayList<Person> getPersonContact() {
+        return personContact;
+    }
 
     public void listPersons() {
-        Person[] person = personContact.toArray(Person[]::new);
-        for (Person p : person)
-            System.out.println(p.getPersonName());
+
+        for (Person p : personContact){
+            System.out.println("__________________________");
+            p.getPersonInfo();
+            System.out.println("__________________________\n");
+        }
 
 
     }
@@ -67,11 +75,22 @@ public class AddressBook {
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
 
-        addressBook.addBusiness();
-        addressBook.addBusiness();
 
 
-        addressBook.listBusinesses();
+        addressBook.addPerson("Sam", "Carpenter", "N4698", "Prescott", "Wisconsin", 54021);
+        addressBook.getPersonContact().get(0).addAddress("207 W Jefferson Ave", "Fairfield", "Iowa", 52556);
+        addressBook.getPersonContact().get(0).addNote("This is great. Give him a good score.");
+        addressBook.getPersonContact().get(0).addEmail("carpe359@gmail.com");
+        addressBook.getPersonContact().get(0).addPhone(6704631);
+
+        addressBook.getPersonContact().get(0).addEmail("ccarpenter@miu.edu");
+
+        addressBook.addPerson("Charlie", "Carpenter");
+
+
+
+
+        addressBook.listPersons();
 
         System.out.println("__________________");
 
