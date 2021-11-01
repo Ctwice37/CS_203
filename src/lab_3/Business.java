@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Business {
     private String businessName;
 
-    private ArrayList<PhoneNumber> phoneNumbers;
-    private ArrayList<Email> emails;
+    private ArrayList<Integer> phoneNumbers;
+    private ArrayList<String> emails;
     private ArrayList<Address> addresses;
 
 

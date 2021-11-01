@@ -8,7 +8,7 @@ public class Person {
 
 
 
-    private ArrayList<Integer> phoneNumbers= new ArrayList<>();
+    private ArrayList<Long> phoneNumbers= new ArrayList<>();
     private ArrayList<String> emails= new ArrayList<>();
     private ArrayList<Address> addresses = new ArrayList<>();
     private ArrayList<String> notes= new ArrayList<>();
@@ -29,8 +29,8 @@ public class Person {
         emails.add(email);
     }
 
-    public void addPhone(int phoneNumber){
-        phoneNumbers.add(phoneNumber);
+    public void addPhone(Long phoneNumber){
+        phoneNumbers.add((Long)phoneNumber);
     }
     public void addAddress(String street, String city, String state, int zip){
         addresses.add(new Address(street, city, state, zip));
@@ -60,12 +60,9 @@ public class Person {
     public void getPersonInfo(){
         System.out.println(this.firstName +
                 " " + this.lastName);
-
-
-
         if(!phoneNumbers.isEmpty()){
             System.out.println("\nPhone Numbers: ");
-            for(int i : phoneNumbers)
+            for(Long i : phoneNumbers)
                 System.out.println(i);
         }else System.out.println("\nPhone Numbers: NULL");
 
@@ -90,6 +87,15 @@ public class Person {
         }else System.out.println("\nAddresses: NULL");
     }
 
+    public ArrayList<Long> getPhoneNumbers() {
+        return phoneNumbers;
+    }
 
+    public ArrayList<String> getEmails() {
+        return emails;
+    }
 
+    public ArrayList<String> getNotes() {
+        return notes;
+    }
 }

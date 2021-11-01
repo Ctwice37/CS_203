@@ -6,6 +6,9 @@ public class Address {
     private String State;
     private int zip;
 
+    public static String StreetInput(String street){                           //nextLine error workaround
+        return street;
+    }
 
     public String getStreet() {
         return Street;
