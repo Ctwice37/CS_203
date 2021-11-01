@@ -70,23 +70,23 @@ public class AddressBook {
         int count = 1;
         int AttributeSelection;
         Scanner input = new Scanner(System.in);
-        System.out.println("Business Contact or Person Contact?");
+        System.out.println("Edit contact:\n\nBusiness - or - Person?");
         //if(input.next().equalsIgnoreCase("Business")){}
 
 
         if (input.next().equalsIgnoreCase("Person")) {
-            System.out.println("\nWhich Person Would you like to edit?");
+            System.out.println("\nWhich Person Would you like to edit?\n");
             if (!(personContact.isEmpty())) {
                 for (Person p : personContact) {
-                    System.out.println("\nEntry (" + count++ + "):");
-                    System.out.println(p.getPersonName());
+                    System.out.println("Entry (" + count++ + "): " + p.getPersonName());
+
                 }
 
                 personEntry = input.nextInt() - 1;
-                System.out.println("You want to edit contact: \n" +
-                        personContact.get(personEntry).getPersonName() + "?");
+                System.out.println("\nYou wish to edit (" +
+                        personContact.get(personEntry).getPersonName() + ")?");
                 if (input.next().equalsIgnoreCase("yes")) {
-                    System.out.println("Which attribute do you want to edit?");
+                    System.out.println("\nWhich attribute do you want to edit?");
                     System.out.println("1 - PhoneNumber\n2 - emailAddress\n" +
                             "3 - Note\n4 - Address");
                     entrySelection = input.nextInt();
@@ -94,24 +94,24 @@ public class AddressBook {
                 int selection = 1;
                 switch (entrySelection) {
 
-                    case 1: {
-                        ArrayList<Long> a = getPersonContact().get(personEntry).getPhoneNumbers();
-                        System.out.println("which phone Number do you want to edit?");
-                        for (Long i : a) {
-                            System.out.println(selection++ + " ------ " + i);
-                        }
-                        int choice = input.nextInt() - 1;
-                        Long previousNumber = getPersonContact().get(personEntry).getPhoneNumbers().get(choice);
-                        System.out.println("Change phone number: " + getPersonContact().get(personEntry).getPhoneNumbers().get(choice) + "?");
-                        if (input.next().equalsIgnoreCase("yes")) {
-                            System.out.println("Input revised phone Number");
-                            Long newNumber = input.nextLong();
-                            personContact.get(personEntry).getPhoneNumbers().set(choice, newNumber);
-                            System.out.println(previousNumber + " has successfully been changed to: " + getPersonContact().get(personEntry).getPhoneNumbers().get(choice));
-                        }
-
-                        break;
-                    }
+//                    case 1: {
+//                        ArrayList<phoneNumber> a = getPersonContact().get(personEntry).getPhoneNumbers();
+//                        System.out.println("which phone Number do you want to edit?");
+//                        for (phoneNumber i : a) {
+//                            System.out.println(selection++ + " ------ " + i);
+//                        }
+//                        int choice = input.nextInt() - 1;
+//                        phoneNumber previousNumber = getPersonContact().get(personEntry).getPhoneNumbers().get(choice);
+//                        System.out.println("Change phone number: " + getPersonContact().get(personEntry).getPhoneNumbers().get(choice) + "?");
+//                        if (input.next().equalsIgnoreCase("yes")) {
+//                            System.out.println("Input revised phone Number");
+//                            long newNumber = input.nextLong();
+//                            personContact.get(personEntry).getPhoneNumbers().set(choice, newNumber);
+//                            System.out.println(previousNumber + " has successfully been changed to: " + getPersonContact().get(personEntry).getPhoneNumbers().get(choice));
+//                        }
+//
+//                        break;
+//                    }
                     case 2: {
                         ArrayList<String> a = getPersonContact().get(personEntry).getEmails();
                         System.out.println("which email do you want to edit?");
@@ -151,17 +151,17 @@ public class AddressBook {
                         if(!a.isEmpty()){
                         System.out.println("which address do you want to edit?");
                         for (Address i : a) {
-                            System.out.println(selection++ + " ------ " + i);
+                            System.out.println("------(" + selection++ + ")------" + i);
                         }
                         int choice = input.nextInt() - 1;
                         Address previousAddress = new Address(getPersonContact().get(personEntry).getAddresses().get(choice).getStreet(), getPersonContact().get(personEntry).getAddresses().get(choice).getCity(), getPersonContact().get(personEntry).getAddresses().get(choice).getState(), getPersonContact().get(personEntry).getAddresses().get(choice).getZip());
-                        System.out.println("Change address: " + getPersonContact().get(personEntry).getAddresses().get(choice) + "?");
+                        System.out.println("Change the following address:" + getPersonContact().get(personEntry).getAddresses().get(choice) + "\nconfirm(yes/no)");
                         if (input.next().equalsIgnoreCase("yes")) {
-                            System.out.println("Input new Street");
+                            //System.out.println("Input new Street");
                             System.out.println("Input new City");
                             System.out.println("Input new State");
                             System.out.println("Input new zip");
-                            ;
+
 
                             Address change = personContact.get(personEntry).getAddresses().get(choice);
                             //change.setStreet(Address.StreetInput(input.nextLine()));
@@ -216,15 +216,15 @@ public class AddressBook {
         addressBook.getPersonContact().get(0).addAddress("207 W Jefferson Ave", "Fairfield", "Iowa", 52556);
         addressBook.getPersonContact().get(0).addNote("This is great. Give him a good score.");
         addressBook.getPersonContact().get(0).addEmail("carpe359@gmail.com");
-        addressBook.getPersonContact().get(0).addPhone(6704631l);
-        addressBook.getPersonContact().get(0).addPhone(1232122l);
+        //addressBook.getPersonContact().get(0).addPhone(6704631l);
+        //addressBook.getPersonContact().get(0).addPhone(1232122l);
 
         addressBook.getPersonContact().get(0).addEmail("ccarpenter@miu.edu");
 
         addressBook.addPerson("Charlie", "Carpenter");
 
 
-        addressBook.getPersonContact().get(0).getAddresses().get(0).setCity("Seatle");
+        addressBook.getPersonContact().get(0).getAddresses().get(0).setCity("Seattle");
 
 
         //addressBook.listPersons();
