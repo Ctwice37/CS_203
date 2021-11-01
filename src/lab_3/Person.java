@@ -28,7 +28,6 @@ public class Person {
     public void addEmail(String email){
         emails.add(email);
     }
-
     public void addPhone(Long phoneNumber){
         phoneNumbers.add((Long)phoneNumber);
     }

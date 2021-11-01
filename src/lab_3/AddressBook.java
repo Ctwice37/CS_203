@@ -34,27 +34,35 @@ public class AddressBook {
         businessContact.add(new Business(businessName));
     }
 
+    public void removePerson(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Which contact Do you wish to Remove?\n");
+        int count = 1;
+        for(Person p : getPersonContact())
+            System.out.println(count++ + " ------ "+p.getPersonName());
+        int choice = input.nextInt()-1;
+        System.out.println("\n\nConfirm:\nRemove: " + personContact.get(choice).getPersonName() + "\n\n(y/n)?");
+        if (input.next().equalsIgnoreCase("y")){
+            personContact.remove(choice);
+            System.out.println("\nDeleted");
+        }
 
-    public void removePerson(String first, String last) {
-        int x = personContact.size() - 1;
-        for (int i = 0; i < x; i++) {
-            if (personContact.get(i).getPersonName().equalsIgnoreCase(first + " " + last))
-                personContact.remove(i);
+        }
+
+
+    public void removeBusiness() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Which contact Do you wish to Remove?\n");
+        int count = 1;
+        for(Business p : getBusinessContact())
+            System.out.println(count++ + " ------ "+p.getBusinessName());
+        int choice = input.nextInt()-1;
+        System.out.println("\n\nConfirm:\nRemove: " + businessContact.get(choice).getBusinessName() + "\n\n(y/n)?");
+        if (input.next().equalsIgnoreCase("y")){
+            businessContact.remove(choice);
+            System.out.println("\nDeleted");
         }
     }
-
-    public void removeBusiness(String business) {
-        int x = businessContact.size() - 1;
-        for (int i = 0; i < x; i++) {
-            if (businessContact.get(i).getBusinessName().equalsIgnoreCase(business))
-                businessContact.remove(i);
-        }
-    }
-
-//    public void listBusinesses(){
-//        for (Business p : businessContact)
-//
-//       }
 
     public void editContacts() {
         int personEntry = 1;
@@ -67,13 +75,13 @@ public class AddressBook {
 
 
         if (input.next().equalsIgnoreCase("Person")) {
-
+            System.out.println("\nWhich Person Would you like to edit?");
             if (!(personContact.isEmpty())) {
                 for (Person p : personContact) {
-                    System.out.println("Entry " + count++ + ":");
+                    System.out.println("\nEntry (" + count++ + "):");
                     System.out.println(p.getPersonName());
                 }
-                System.out.println("\nWhich Person Would you like to edit?");
+
                 personEntry = input.nextInt() - 1;
                 System.out.println("You want to edit contact: \n" +
                         personContact.get(personEntry).getPersonName() + "?");
@@ -140,6 +148,7 @@ public class AddressBook {
                     }
                     case 4: {
                         ArrayList<Address> a = getPersonContact().get(personEntry).getAddresses();
+                        if(!a.isEmpty()){
                         System.out.println("which address do you want to edit?");
                         for (Address i : a) {
                             System.out.println(selection++ + " ------ " + i);
@@ -151,7 +160,8 @@ public class AddressBook {
                             System.out.println("Input new Street");
                             System.out.println("Input new City");
                             System.out.println("Input new State");
-                            System.out.println("Input new zip");;
+                            System.out.println("Input new zip");
+                            ;
 
                             Address change = personContact.get(personEntry).getAddresses().get(choice);
                             //change.setStreet(Address.StreetInput(input.nextLine()));
@@ -159,18 +169,28 @@ public class AddressBook {
                             change.setState(input.next());
                             change.setZip(input.nextInt());
                             System.out.println(previousAddress + " has successfully been changed to: " + getPersonContact().get(personEntry).getAddresses().get(choice));
+                        }}else{
+                            System.out.println("Contact currently has no Addresses\n\n--Create new Address--\n");
+                            System.out.println("Street:");
+                            System.out.println("City:");
+                            System.out.println("State");
+                            System.out.println(("Zip"));
+                            personContact.get(personEntry).getAddresses().add(new Address(input.next(), input.next(), input.next(), input.nextInt()));
+                        }
                             break;
                         }
                     }
                 }
             }
         }
-    }
-
 
 
     public ArrayList<Person> getPersonContact() {
         return personContact;
+    }
+
+    public ArrayList<Business> getBusinessContact(){
+        return businessContact;
     }
 
     public void listPersons() {
@@ -183,6 +203,10 @@ public class AddressBook {
 
 
     }
+
+
+
+
 
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
@@ -203,12 +227,14 @@ public class AddressBook {
         addressBook.getPersonContact().get(0).getAddresses().get(0).setCity("Seatle");
 
 
-        addressBook.listPersons();
+        //addressBook.listPersons();
 
         System.out.println("__________________");
 
 
         addressBook.editContacts();
+
+        addressBook.listPersons();
 
 
         //addressBook.removeBusiness("apple");

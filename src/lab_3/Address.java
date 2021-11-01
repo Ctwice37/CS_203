@@ -6,7 +6,7 @@ public class Address {
     private String State;
     private int zip;
 
-    public static String StreetInput(String street){                           //nextLine error workaround
+    public static String StreetInput(String street){                           //Workaround for the .nextLine() bug in editContact method (inside AddressBook class
         return street;
     }
 
