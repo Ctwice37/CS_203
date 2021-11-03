@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Business {
     private String businessName;
 
-    private ArrayList<Integer> phoneNumbers;
+    private ArrayList<phoneNumber> phoneNumbers;
     private ArrayList<String> emails;
     private ArrayList<Address> addresses;
     private ArrayList<String> notes;
@@ -15,12 +15,17 @@ public class Business {
         this.businessName = name;
     }
 
+    public Business(String businessName, String Street, String city, String state, int zip){
+        this.businessName = businessName;
+        addresses.add(new Address(Street, city, state, zip));
+    }
+
 public String getBusinessName(){
         return this.businessName;
 }
 
-    public void addPhone(int Phone){
-        phoneNumbers.add(Phone);
+    public void addPhone(int type, int number){
+        phoneNumbers.add(new phoneNumber(type, number));
     }
     public void addEmail(String email){
         emails.add(email);
@@ -28,12 +33,12 @@ public String getBusinessName(){
     public void addNote(String note){
         notes.add(note);
     }
-    public void addAddress(Address address){
-        addresses.add(address);
+    public void addAddress(String street, String city, String state, int zip ){
+        addresses.add(new Address(street, city, state, zip));
     }
 
 
-    public ArrayList<Integer> getPhoneNumbers() {
+    public ArrayList<phoneNumber> getPhoneNumbers() {
         return phoneNumbers;
     }
 
