@@ -1,4 +1,4 @@
-package lab_5;
+package Lab_5_q4;
 
 public class Manager extends Employee{
     public Manager(int employeeID, String name, String department, double salary, String position) {
@@ -7,8 +7,9 @@ public class Manager extends Employee{
 
     @Override
     public void addBonus() {
-        se;
+        this.setSalary(this.getSalary()+300);
+
 
     }
 }
-}
+

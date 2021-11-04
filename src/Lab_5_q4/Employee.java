@@ -1,4 +1,4 @@
-package lab_5;
+package Lab_5_q4;
 
 public class Employee {
     private int employeeID;
@@ -26,9 +26,9 @@ public class Employee {
     }
 
     public void printEmployeeDetails(){
-        System.out.println("Employee id:" + employeeID +
-                "\nname" + name +
-                "\ndepartment" + department +
+        System.out.println("\n\nEmployee id: " + employeeID +
+                "\nname: " + name +
+                "\ndepartment: " + department +
                 "\nsalary + bonus:" + salary +
                 "\nposition:" + position);
     }

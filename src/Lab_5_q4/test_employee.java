@@ -1,4 +1,7 @@
-package lab_5;
+package Lab_5_q4;
+
+import Lab_5_q4.Clerk;
+import Lab_5_q4.Manager;
 
 public class test_employee {
     public static void main(String[] args) {
